@@ -1,0 +1,25 @@
+lib/
+│
+├── main.dart
+│
+├── data/
+│   ├── models/
+│   │   ├── company.dart
+│   │   ├── project.dart
+│   │   ├── budget.dart
+│   │   ├── task.dart
+│   │   └── payment.dart
+│   │
+│   └── local_json_service.dart
+│
+├── screens/
+│   ├── dashboard_page.dart
+│   ├── project_list_page.dart
+│   ├── project_details_page.dart
+│   ├── task_team_page.dart
+│   └── payments_page.dart
+│
+└── widgets/
+    ├── summary_card.dart
+    ├── status_badge.dart
+    └── progress_bar.dart

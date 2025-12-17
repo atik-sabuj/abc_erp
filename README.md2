@@ -1,0 +1,22 @@
+# ABC Construction ERP App (Flutter)
+
+## Features
+- Dashboard with budget overview
+- Project listing & details
+- Task & team management
+- Payments & approvals tracking
+
+## Tech Stack
+- Flutter
+- Dart
+- Material UI
+- Local JSON parsing
+
+## How to Run
+1. Clone repo
+2. flutter pub get
+3. flutter run
+
+## Notes
+- Uses only provided JSON
+- No external API used
