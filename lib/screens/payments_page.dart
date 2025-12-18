@@ -6,13 +6,18 @@ class PaymentsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final payments = project['payments'] as List;
+    final List payments = project['payments'] ?? [];
 
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Payments & Approvals'),
         backgroundColor: Colors.black,
+        elevation: 0,
+        title: Text(
+          '${project['name']} Payments',
+          style: const TextStyle(color: Colors.white),
+        ),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: payments.isEmpty
           ? const Center(
@@ -39,51 +44,83 @@ class PaymentsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  /// Amount
                   Text(
                     'Amount: ${payment['amount']} BDT',
                     style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Requested By: ${payment['requestedBy']}',
-                    style: const TextStyle(color: Colors.grey),
+
+                  const SizedBox(height: 6),
+
+                  /// Request Info
+                  _infoRow('Requested By', payment['requestedBy']),
+                  _infoRow('Requested Date', payment['requestDate']),
+
+                  const SizedBox(height: 12),
+
+                  /// Approval Status
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 6, horizontal: 12),
+                    decoration: BoxDecoration(
+                      color: _statusColor(approval['status'])
+                          .withOpacity(0.15),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      approval['status'],
+                      style: TextStyle(
+                        color: _statusColor(approval['status']),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                  Text(
-                    'Requested Date: ${payment['requestDate']}',
-                    style: const TextStyle(color: Colors.grey),
-                  ),
+
                   const SizedBox(height: 8),
-                  Text(
-                    'Approval Status: ${approval['status']}',
-                    style: const TextStyle(
-                        color: Colors.blueAccent,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    'Approved By: ${approval['approvedBy']}',
-                    style: const TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    'Approved Date: ${approval['approvedDate']}',
-                    style: const TextStyle(color: Colors.grey),
-                  ),
-                  const SizedBox(height: 8),
+
+                  _infoRow('Approved By', approval['approvedBy']),
+                  _infoRow('Approved Date', approval['approvedDate']),
+
+                  const SizedBox(height: 12),
                   const Divider(color: Colors.grey),
                   const SizedBox(height: 8),
+
+                  /// Invoices
                   const Text(
-                    'Invoices:',
+                    'Invoices',
                     style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
+
+                  const SizedBox(height: 6),
+
                   ...List.generate(payment['invoices'].length, (i) {
                     final invoice = payment['invoices'][i];
                     return Padding(
-                      padding: const EdgeInsets.only(top: 4),
-                      child: Text(
-                        '${invoice['vendor']} - ${invoice['amount']} BDT',
-                        style: const TextStyle(color: Colors.grey),
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Row(
+                        mainAxisAlignment:
+                        MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              invoice['vendor'],
+                              style: const TextStyle(
+                                  color: Colors.grey),
+                            ),
+                          ),
+                          Text(
+                            '${invoice['amount']} BDT',
+                            style: const TextStyle(
+                                color: Colors.white),
+                          ),
+                        ],
                       ),
                     );
                   }),
@@ -95,5 +132,39 @@ class PaymentsPage extends StatelessWidget {
       ),
     );
   }
-}
 
+  /// Info Row Widget
+  Widget _infoRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 2),
+      child: Row(
+        children: [
+          Text(
+            '$label: ',
+            style: const TextStyle(color: Colors.grey),
+          ),
+          Expanded(
+            child: Text(
+              value,
+              style: const TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Status Color Helper
+  Color _statusColor(String status) {
+    switch (status.toLowerCase()) {
+      case 'approved':
+        return Colors.greenAccent;
+      case 'pending':
+        return Colors.orangeAccent;
+      case 'rejected':
+        return Colors.redAccent;
+      default:
+        return Colors.blueAccent;
+    }
+  }
+}

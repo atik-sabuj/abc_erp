@@ -1,16 +1,42 @@
 # abc_erp
 
-A new Flutter project.
+A **Flutter-based ERP Dashboard application of ABC Construction Ltd"** with **Dark UI**, dynamic **JSON data binding**, and structured navigation.
 
-## Getting Started
+This app demonstrates how an ERP-style mobile application can be built using Flutter without any backend, powered entirely by a local JSON file.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 🌙 Fully Dark UI (modern & clean design)
+- 📊 Dashboard with quick summary cards
+- 📁 Project List & Project Details
+- 👥 Task & Team Management
+- 💳 Payments & Approval Flow
+- 🔄 Dynamic data loading from `assets/data.json`
+- 🧭 Smooth navigation between screens
+- 🧱 Reusable widgets architecture
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 📂 Project Structure
+
+```text
+lib/
+│
+├── main.dart
+│
+├── data/
+│   └── local_json_service.dart
+│
+├── screens/
+│   ├── dashboard_page.dart
+│   ├── project_list_page.dart
+│   ├── project_details_page.dart
+│   ├── task_team_page.dart
+│   └── payments_page.dart
+│
+└── widgets/
+    ├── summary_card.dart
+    ├── status_badge.dart
+    └── progress_bar.dart
