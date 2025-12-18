@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ProjectListPage extends StatefulWidget {
-  final List projects; // <-- এখানে parameter define করা হলো
+  final List projects;
 
   const ProjectListPage({super.key, required this.projects});
 
@@ -20,7 +20,7 @@ class _ProjectListPageState extends State<ProjectListPage> {
   @override
   void initState() {
     super.initState();
-    projects = widget.projects; // Dashboard থেকে পাওয়া data assign
+    projects = widget.projects;
   }
 
   @override

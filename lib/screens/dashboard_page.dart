@@ -108,27 +108,6 @@ class _DashboardPageState extends State<DashboardPage> {
                           borderRadius: BorderRadius.circular(12))),
                   child: const Text('View Projects')),
             ),
-            const SizedBox(height: 12),
-            SizedBox(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PaymentsPage(project: projectsList[0]), // single project
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurpleAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12))),
-                child: const Text('View Payments & Approvals'),
-              ),
-
-            )
           ],
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PaymentsPage extends StatelessWidget {
-  final Map project; // ProjectDetails থেকে একটি project পাঠানো হবে
+  final Map project;
   const PaymentsPage({super.key, required this.project});
 
   @override

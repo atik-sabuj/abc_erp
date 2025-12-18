@@ -23,7 +23,7 @@ class ProjectDetailsPage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: ListView(
           children: [
-            // Project Basic Info
+            /// Project Basic Info
             Card(
               color: const Color(0xFF1E1E1E),
               shape: RoundedRectangleBorder(
@@ -50,7 +50,7 @@ class ProjectDetailsPage extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // Budget Breakdown
+            /// Budget Breakdown
             Card(
               color: const Color(0xFF1E1E1E),
               shape: RoundedRectangleBorder(
@@ -91,7 +91,7 @@ class ProjectDetailsPage extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // Tasks
+            /// Tasks
             Card(
               color: const Color(0xFF1E1E1E),
               shape: RoundedRectangleBorder(
@@ -123,7 +123,7 @@ class ProjectDetailsPage extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // View Task & Team Button
+            /// View Task & Team Button
             SizedBox(
               width: double.infinity,
               height: 50,
@@ -142,7 +142,7 @@ class ProjectDetailsPage extends StatelessWidget {
 
             const SizedBox(height: 12),
 
-            // Payments Button
+            /// Payments Button
             SizedBox(
               width: double.infinity,
               height: 50,
