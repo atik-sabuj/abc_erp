@@ -3,14 +3,7 @@ lib/
 ├── main.dart
 │
 ├── data/
-│   ├── models/
-│   │   ├── company.dart
-│   │   ├── project.dart
-│   │   ├── budget.dart
-│   │   ├── task.dart
-│   │   └── payment.dart
-│   │
-│   └── local_json_service.dart
+│   ├── local_json_service.dart
 │
 ├── screens/
 │   ├── dashboard_page.dart
