@@ -44,6 +44,15 @@ class PaymentsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    'Payments & Approvals',
+                    style: const TextStyle(
+                      color: Colors.yellow,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   /// Amount
                   Text(
                     'Amount: ${payment['amount']} BDT',
